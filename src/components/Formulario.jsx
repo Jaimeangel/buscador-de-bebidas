@@ -1,6 +1,8 @@
 import { Grid,TextField,MenuItem } from '@mui/material';
+import useCategorias from '../hooks/useCategorias';
 
 function Formulario() {
+    const {Category,setSelectCategory,Drinks}=useCategorias();
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
@@ -11,11 +13,16 @@ function Formulario() {
             helperText="Ej:Tequila,Vodka,etc"
             fullWidth
         >
-           
-           {/*  <MenuItem value='cerveza'>
-                cerveza
-            </MenuItem> */}
-           
+                {
+                    Drinks?.map(drink=>(
+                        <MenuItem
+                            key={drink.idDrink}
+                            value={drink.strDrink}
+                        >
+                            {drink.strDrink}
+                        </MenuItem>
+                    )) 
+                }
         </TextField>
       </Grid>
       <Grid item xs={12} sm={6}>
@@ -25,13 +32,22 @@ function Formulario() {
                 label="Categoria de bebida"
                 helperText="Elige una categoria de bebida"
                 fullWidth
-            >
+                defaultValue="Ordinary Drink"
+                onChange={(e)=>setSelectCategory(e.target.value)}
+        >
             
-               {/*  <MenuItem value='cerveza'>
-                    cerveza
-                </MenuItem> */}
+                {
+                    Category?.map(categoria=>(
+                        <MenuItem
+                            key={categoria.strCategory}
+                            value={categoria.strCategory}
+                        >
+                            {categoria.strCategory}
+                        </MenuItem>
+                    )) 
+                }
             
-            </TextField>
+        </TextField>
       </Grid>
     </Grid>
   );

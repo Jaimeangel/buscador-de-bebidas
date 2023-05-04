@@ -1,16 +1,18 @@
-import { Container,Typography} from "@mui/material"
+import { Container} from "@mui/material"
+import { CategoriaProvider } from "../context/CategoriaProvider"
 import Formulario from "./Formulario"
-
 function Main() {
   return (
-    <Container 
-      maxWidth="lg"
-      sx={{
-        marginTop:'30px'
-      }}
-    >
-      <Formulario/>
-    </Container>
+    <CategoriaProvider>
+      <Container 
+        maxWidth="lg"
+        sx={{
+          marginTop:'30px'
+        }}
+      >
+        <Formulario/>
+      </Container>
+    </CategoriaProvider>
   )
 }
 
