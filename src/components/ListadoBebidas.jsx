@@ -10,6 +10,7 @@ function ListadoBebidas() {
         spacing={2} 
         justifyContent={'flex-start'}
         marginTop={5}
+        marginBottom={5}
     >
         {
             bebidas.map(bebida=>(
