@@ -1,7 +1,11 @@
 import { Container} from "@mui/material"
+
 import { CategoriaProvider } from "../context/CategoriaProvider"
 import { BebidasProvider } from "../context/BebidasProvider"
+
 import Formulario from "./Formulario"
+import ListadoBebidas from "./ListadoBebidas"
+
 function Main() {
   return (
     <CategoriaProvider>
@@ -13,6 +17,7 @@ function Main() {
           }}
         >
           <Formulario/>
+          <ListadoBebidas/>
         </Container>
       </BebidasProvider>
     </CategoriaProvider>

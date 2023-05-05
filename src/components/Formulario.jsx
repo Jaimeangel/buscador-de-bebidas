@@ -26,7 +26,7 @@ function Formulario() {
 
   return (
     <React.Fragment>
-        <Grid container spacing={2} justifyContent={'flex-end'}>
+        <Grid container spacing={2} justifyContent={'flex-end'} marginTop={5}>
             <Grid item xs={12} sm={6}>
                 <TextField
                     id="outlined-select-currency"
