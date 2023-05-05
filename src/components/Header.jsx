@@ -11,7 +11,7 @@ function Header() {
           <Typography 
             textAlign={'center'}
             variant='h4'
-            component={'h4'}
+            component={'h1'}
           >
             BUSCADOR DE BEBIDAS
           </Typography>

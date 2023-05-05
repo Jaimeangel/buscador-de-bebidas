@@ -4,9 +4,8 @@ const CategoriasContext= createContext()
 
 function CategoriaProvider({children}) {
 
-    const [Category,setCategory]=useState([])
-    const [SelectCategory,setSelectCategory]=useState("Ordinary Drink")
-    const [Drinks,setDrinks]=useState([])
+    const [category,setCategory]=useState([])
+    const [selectCategory,setSelectCategory]=useState("Ordinary Drink")
 
     useEffect(()=>{
         async function getCategory(){
@@ -21,27 +20,12 @@ function CategoriaProvider({children}) {
         }
         getCategory()
     },[])
-
-    useEffect(()=>{
-        async function getCategory(){
-            try {
-                const URL=`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${SelectCategory}`
-                const fetchGategory= await fetch(URL)
-                const {drinks} = await fetchGategory.json()
-                setDrinks(drinks)
-            } catch (error) {
-                throw new Error(error)
-            }
-        }
-        getCategory()
-
-    },[SelectCategory])
   return (
     <CategoriasContext.Provider
         value={{
-            Category,
+            category,
             setSelectCategory,
-            Drinks
+            selectCategory
         }}
     >
       {children}
